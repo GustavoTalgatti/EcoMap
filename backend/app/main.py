@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import Base, engine
 from app.models import CollectionPoint, Suggestion, User  # noqa: F401
-from app.routers import auth, health, points
+from app.routers import admin, auth, health, points, suggestions
 
 
 @asynccontextmanager
@@ -27,3 +27,5 @@ app.add_middleware(
 app.include_router(health.router, prefix="/api", tags=["health"])
 app.include_router(points.router, prefix="/api", tags=["points"])
 app.include_router(auth.router, prefix="/api")
+app.include_router(suggestions.router, prefix="/api")
+app.include_router(admin.router, prefix="/api")
