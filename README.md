@@ -279,16 +279,16 @@ Projeto desenvolvido pelos integrantes do grupo para a disciplina:
 
 Open Source Contribution & Collaboration
 
-Universidade/Instituição: preencher
+Universidade/Instituição: UniFECAF
 
-Professor(a): preencher
+Professor(a): Robson Cardoso
 
 Integrantes:
 
-Gustavo Talgatti
-Integrante 2
-Integrante 3
-Integrante 4
+Igor Ferreira Alves
+Gabriela Camarço de Sousa
+Luis Gustavo Talgatti dos Santos
+
 📄 Licença
 
 Este projeto ainda não possui uma licença definida.
