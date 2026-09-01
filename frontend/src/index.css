@@ -109,3 +109,94 @@ body {
 .modal-content p {
   margin-bottom: var(--space-sm);
 }
+
+.form-page {
+  max-width: 480px;
+  margin: var(--space-2xl) auto;
+  padding: 0 var(--space-lg);
+}
+
+.form-page h1 {
+  margin-bottom: var(--space-xl);
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 4px oklch(0% 0 0 / 0.08);
+}
+
+.form-card label {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+}
+
+.form-card input,
+.form-card textarea {
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+}
+
+.form-card button[type="submit"] {
+  margin-top: var(--space-sm);
+  padding: 0.6rem;
+  background: var(--color-brand-700);
+  color: var(--color-text-on-brand);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+.form-card button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-card fieldset {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+}
+
+.form-card legend {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+}
+
+.success-message {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-brand-100);
+  color: var(--color-brand-900);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.guide-page {
+  max-width: 720px;
+  margin: var(--space-2xl) auto;
+  padding: 0 var(--space-xl) 3rem;
+}
+
+.guide-page h1 {
+  margin-bottom: var(--space-2xl);
+}
+
+.guide-page section {
+  margin-bottom: var(--space-xl);
+  background: var(--color-surface);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 4px oklch(0% 0 0 / 0.06);
+}
+
+.guide-page h2 {
+  color: var(--color-brand-700);
+  margin-bottom: var(--space-sm);
+}
