@@ -12,3 +12,18 @@ body {
   background: var(--color-bg);
   line-height: 1.5;
 }
+
+.map-view {
+  height: calc(100vh - var(--header-height));
+  width: 100%;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+
+.error-message {
+  padding: var(--space-lg);
+  color: oklch(45% 0.15 25);
+}
