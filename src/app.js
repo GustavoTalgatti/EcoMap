@@ -27,6 +27,12 @@ app.get("/", (req, res) => {
   );
 });
 
+app.get("/pontos", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "../views/pontos.html")
+  );
+});
+
 app.get("/health", (req, res) => {
   res.status(200).json({
     success: true,
