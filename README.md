@@ -286,7 +286,9 @@ Professor(a): Robson Cardoso
 Integrantes:
 
 Igor Ferreira Alves
+
 Gabriela Camarço de Sousa
+
 Luis Gustavo Talgatti dos Santos
 
 📄 Licença
