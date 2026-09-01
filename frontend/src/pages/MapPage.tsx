@@ -1,27 +1,36 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import FilterBar from "../components/FilterBar";
 import MapView from "../components/MapView";
+import PointModal from "../components/PointModal";
 import { api } from "../services/api";
-import type { CollectionPoint } from "../types";
+import type { CollectionPoint, MaterialType } from "../types";
 
 export default function MapPage() {
   const [points, setPoints] = useState<CollectionPoint[]>([]);
+  const [selectedMaterials, setSelectedMaterials] = useState<MaterialType[]>([]);
+  const [selectedPoint, setSelectedPoint] = useState<CollectionPoint | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    api
-      .getPoints()
-      .then(setPoints)
-      .catch((err: Error) => setError(err.message));
+  const loadPoints = useCallback(async (materials: MaterialType[]) => {
+    try {
+      setError(null);
+      const data = await api.getPoints(materials.length > 0 ? materials : undefined);
+      setPoints(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erro ao carregar pontos");
+    }
   }, []);
 
-  if (error) {
-    return <p className="error-message">{error}</p>;
-  }
+  useEffect(() => {
+    loadPoints(selectedMaterials);
+  }, [selectedMaterials, loadPoints]);
 
   return (
-    <MapView
-      points={points}
-      onSelectPoint={(point) => console.log("selected", point.id)}
-    />
+    <div className="map-page">
+      <FilterBar selected={selectedMaterials} onChange={setSelectedMaterials} />
+      {error && <p className="error-message">{error}</p>}
+      <MapView points={points} onSelectPoint={setSelectedPoint} />
+      <PointModal point={selectedPoint} onClose={() => setSelectedPoint(null)} />
+    </div>
   );
 }
