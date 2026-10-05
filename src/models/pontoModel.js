@@ -42,8 +42,8 @@ function listarTodos(filtros = {}) {
   const params = {};
 
   if (filtros.cidade) {
-    conditions.push("LOWER(p.cidade) = LOWER(@cidade)");
-    params.cidade = filtros.cidade;
+    conditions.push("normalizar(p.cidade) = @cidade");
+    params.cidade = normalizarTexto(filtros.cidade);
   }
 
   // Busca livre: nome do ponto ou nome de um material aceito,

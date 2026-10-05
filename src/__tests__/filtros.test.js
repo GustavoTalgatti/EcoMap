@@ -4,7 +4,7 @@ const db = require('../database/connection');
 
 // Dados exclusivos deste arquivo: não dependem do seed e não interferem
 // nos pontos existentes. Tudo é removido no afterAll.
-const CIDADE_ALFA = 'Cidade Filtro Alfa';
+const CIDADE_ALFA = 'São João Filtro Alfa';
 const CIDADE_BETA = 'Cidade Filtro Beta';
 
 const MATERIAL_A = { nome: 'Material Filtro A', slug: 'material-filtro-a' };
@@ -109,6 +109,11 @@ describe('Filtros de GET /api/pontos', () => {
   it('deve filtrar por cidade sem diferenciar maiúsculas de minúsculas', async () => {
     const pontos = await listar({ cidade: CIDADE_ALFA.toLowerCase() });
 
+    expect(nomes(pontos)).toEqual(['Ponto Filtro 1', 'Ponto Filtro 2']);
+  });
+
+  it('deve filtrar por cidade ignorando acentos e espaços nas extremidades', async () => {
+    const pontos = await listar({ cidade: '  SAO JOAO FILTRO ALFA  ' });
     expect(nomes(pontos)).toEqual(['Ponto Filtro 1', 'Ponto Filtro 2']);
   });
 
