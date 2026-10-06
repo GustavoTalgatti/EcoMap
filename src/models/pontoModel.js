@@ -46,6 +46,11 @@ function listarTodos(filtros = {}) {
     params.cidade = filtros.cidade;
   }
 
+  if (filtros.estado) {
+    conditions.push("LOWER(p.estado) = LOWER(@estado)");
+    params.estado = filtros.estado;
+  }
+
   // Busca livre: nome do ponto ou nome de um material aceito,
   // sem diferenciar maiúsculas de minúsculas nem acentos.
   const busca = normalizarTexto(filtros.busca);
